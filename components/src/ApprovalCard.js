@@ -1,6 +1,7 @@
 import React from "react";
 
-const ApporvalCard = (props) => {
+const ApporvalCard = props => {
+
   return (
     <div className="ui card">
       <div className="content">{props.children}</div>
