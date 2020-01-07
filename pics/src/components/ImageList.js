@@ -1,14 +1,15 @@
+import "./ImageList.css";
 import React from "react";
-
+import ImageCard from "./ImageCard";
 const ImageList = props => {
   // .map(=>{}) will itterate through each element in the list and do the function (just think of the enhanced forloop)
   // without key in <img> tag, it will cause warning
   //because to render the updates react will check the contents with correspoding keys with current DOM
   // Therefore in LIST
   // it is good to identify key for performance and etc...
-  const images = props.images.map(({ description, id, urls }) => {
+  const images = props.images.map(image => {
     // add the key values in the root of returned JSX tag
-    return <img alt={description} key={id} src={urls.regular}></img>;
+    return <ImageCard key={image.id} image  ={image}></ImageCard>;
 
     // if It is enclosed with <Div> then need the key on div instead of <img> tag
     // return <div key={image.id} ><img src={image.urls.regular}></img> </div>;
@@ -16,7 +17,7 @@ const ImageList = props => {
     //
   });
 
-  return <div>{images}</div>;
+  return <div className="image-list">{images}</div>;
 };
 
 export default ImageList;
