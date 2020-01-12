@@ -12,15 +12,16 @@ class SearchBar extends React.Component {
     this.setState({
       term: event.target.value
     });
+  //Everytime, when the user types a letter, it will be saved in state.term
+    console.log(this.state.term);
   };
 
-  //When user hits enter key then will
+  //When the user hits the enter key then will
   onFormSubmit = event => {
     //this will prevent the system automatically refreshes the page after the submit.
-     event.preventDefault();
+    event.preventDefault();
 
     this.props.onFormSubmit(this.state.term);
-
   };
   render() {
     return (
