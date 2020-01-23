@@ -1,8 +1,6 @@
-import React from "react";
 // When there is {} in import state it means that other file didn't export default.
-import { selectSong } from "../actions";
+import { combineReducers } from "redux";
 
-//
 const songsReducer = () => {
   return [
     { title: "No scrubs", duration: "4:05" },
@@ -12,8 +10,15 @@ const songsReducer = () => {
   ];
 };
 
-const selectedSongReducer = (selectedSong = null, action) =>{
-    return {
-        selectedSong;
-    };
+const selectedSongReducer = (selectedSong = null, action) => {
+  if (action.type === "SONG_SELECTED") {
+    return action.payload;
+  }
+  return selectedSong;
 };
+
+//combine store with
+export default combineReducers({
+  songs: songsReducer,
+  selectedSong: selectedSongReducer
+});
