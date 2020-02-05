@@ -1,7 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 
-const SongDetail = ({ song }) => {
+const SongDetail = (props) => {
+  const song = props.song;
   if (song === null) {
     return <div>Select Song</div>;
   }
@@ -11,7 +12,7 @@ const SongDetail = ({ song }) => {
       <h3>Detail : </h3>
       <p>
         Title : {song.title}
-        <br/>
+        <br />
         Duration : {song.duration}
       </p>
     </div>
@@ -19,6 +20,7 @@ const SongDetail = ({ song }) => {
 };
 
 const mapStateToProps = state => {
+  console.log(state);
   return { song: state.selectedSong };
 };
 

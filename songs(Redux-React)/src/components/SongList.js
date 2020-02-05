@@ -24,7 +24,7 @@ class SongList extends Component {
 
   render() {
     // this.props === {songs : state.SongList}
-
+    console.log(this.props);
     return <div className="ui divided list">{this.renderList()}</div>;
   }
 }
@@ -37,5 +37,5 @@ const mapStateToProps = state => {
 };
 
 //위에 있는 State를 Connect를 통해 준당
-//  
+//
 export default connect(mapStateToProps, { selectSong })(SongList);
